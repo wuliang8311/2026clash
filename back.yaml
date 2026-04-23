@@ -35,13 +35,15 @@ default: &default
     - 香港-自动
     - 香港-故转
     - 香港-手动
-
+    - 德国-自动
+    - 英国-故转
+    - 韩国-手动
     - 台湾-故转
     - 台湾-自动
     - 日本-故转
 #    - 日本-手动
     - 新加坡-故转
-#    - 新加坡-手动
+#   - 新加坡-手动
     - 美国-故转
 #    - 美国-手动
     - 其他-故转
@@ -99,7 +101,28 @@ proxy-groups:
     tolerance: 50
     interval: 180
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
- 
+    
+ # 德国 - 自动选择 (url-test)
+  - name: 德国-自动
+    type: url-test
+    include-all: true
+    tolerance: 50
+    interval: 180
+    filter: "(?=.*(德国|DE|Germany|🇩🇪)).*$"
+
+  # 英国 - 故障转移 (fallback)
+  - name: 英国-故转
+    type: fallback
+    include-all: true
+    interval: 180
+    filter: "(?=.*(英国|UK|United Kingdom|🇬🇧)).*$"
+
+  # 韩国 - 手动选择 (select)
+  - name: 韩国-手动
+    type: select
+    include-all: true
+    filter: "(?=.*(韩国|KR|Korea|🇰🇷)).*$"
+    
   # 台湾组
   - name: 台湾-故转
     type: fallback
