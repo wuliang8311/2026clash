@@ -221,6 +221,12 @@ proxy-groups:
 # 规则引擎（rules）
 # ========================
 rules:
+# 1. Bing 强制直连 
+  - DOMAIN-KEYWORD,bing,直连
+  - DOMAIN-SUFFIX,bing.com,直连
+  - DOMAIN-SUFFIX,bing.net,直连
+  - DOMAIN-SUFFIX,bing.com.cn,直连
+  - DOMAIN-SUFFIX,bingapis.com,直连
   - RULE-SET,ChatGPT / Domain,人工智能
   - RULE-SET,Sex / Domain,颜色
   - RULE-SET,Test / Domain,测试
